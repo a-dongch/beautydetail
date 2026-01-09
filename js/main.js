@@ -247,6 +247,7 @@ faqItems.forEach(item => {
 // =============================================
 
 // Slack Webhook URL
+const SLACK_WEBHOOK_URL = 'https://slack-proxy-mougo-genaral.zonber1002.workers.dev';
 
 // Plan labels mapping
 const planLabels = {
