@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뷰티디테일 - 프리미엄 뷰티샵 홍보페이지 제작 서비스</title>
+    <meta name="description" content="뷰티샵 전문 랜딩페이지 제작 서비스. 맞춤형 디자인과 유지보수로 당신의 뷰티샵을 빛내드립니다.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS - Animate On Scroll -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-spa"></i>
+                뷰티디테일
+            </div>
+            <div class="nav-menu">
+                <a href="#hero" class="nav-link">홈</a>
+                <a href="#about" class="nav-link">소개</a>
+                <a href="#plans" class="nav-link">가격</a>
+                <a href="#templates" class="nav-link">템플릿</a>
+                <a href="#contact" class="nav-link">문의</a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-aos="fade-up" data-aos-duration="1000">
+                    당신의 뷰티샵을<br>
+                    <span class="gradient-text">특별하게</span> 만들어드립니다
+                </h1>
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                    맞춤형 디자인과 전문적인 관리로<br>
+                    고객을 사로잡는 홍보 페이지를 제작합니다
+                </p>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                    <a href="#plans" class="btn btn-primary btn-large">
+                        <span>플랜 보기</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#templates" class="btn btn-secondary btn-large">
+                        <span>템플릿 둘러보기</span>
+                        <i class="fas fa-images"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="600">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">제작 완료</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-label">만족도 %</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="24">0</div>
+                    <div class="stat-label">시간 대응</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="800">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>스크롤하여 더보기</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">WHY BEAUTY DETAIL</span>
+                <h2 class="section-title">뷰티디테일만의 차별점</h2>
+                <p class="section-description">
+                    단순한 페이지가 아닌, 당신의 브랜드 스토리를 담은 특별한 공간을 만들어드립니다
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="feature-title">맞춤형 디자인</h3>
+                    <p class="feature-description">
+                        뷰티샵의 브랜드 컬러와 감성에 맞춘<br>
+                        완전 커스터마이징 가능한 디자인
+                    </p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title">모바일 최적화</h3>
+                    <p class="feature-description">
+                        SNS 광고에 완벽한 모바일 우선<br>
+                        반응형 디자인으로 어디서든 완벽하게
+                    </p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3 class="feature-title">무제한 콘텐츠</h3>
+                    <p class="feature-description">
+                        이미지, 텍스트, 영상 등<br>
+                        담고 싶은 내용을 제한 없이 추가
+                    </p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="feature-title">FB/IG 랜딩페이지</h3>
+                    <p class="feature-description">
+                        페이스북, 인스타그램 광고용<br>
+                        고전환율 랜딩페이지 제작
+                    </p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="feature-title">의견 반영</h3>
+                    <p class="feature-description">
+                        개발자와 직접 소통하며<br>
+                        원하시는 방향으로 세심하게 제작
+                    </p>
+                </div>
+
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="feature-title">지속적 관리</h3>
+                    <p class="feature-description">
+                        제작 후에도 유지보수로<br>
+                        언제든 수정 및 업데이트 가능
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">USE CASES</span>
+                <h2 class="section-title">이렇게 활용하세요</h2>
+            </div>
+
+            <div class="use-cases-grid">
+                <div class="use-case-card" data-aos="fade-right" data-aos-delay="100">
+                    <div class="use-case-number">01</div>
+                    <div class="use-case-content">
+                        <h3>SNS 광고 랜딩페이지</h3>
+                        <p>페이스북, 인스타그램 광고를 통해 유입된 고객들에게 매력적인 첫인상을 제공합니다</p>
+                    </div>
+                    <div class="use-case-icon">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+
+                <div class="use-case-card" data-aos="fade-right" data-aos-delay="200">
+                    <div class="use-case-number">02</div>
+                    <div class="use-case-content">
+                        <h3>브랜드 소개 홈페이지</h3>
+                        <p>뷰티샵의 색깔과 철학을 담은 개성 있는 브랜드 소개 페이지로 활용하세요</p>
+                    </div>
+                    <div class="use-case-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                </div>
+
+                <div class="use-case-card" data-aos="fade-right" data-aos-delay="300">
+                    <div class="use-case-number">03</div>
+                    <div class="use-case-content">
+                        <h3>이벤트 프로모션</h3>
+                        <p>시즌 이벤트나 특별 프로모션을 위한 전용 페이지로 고객의 관심을 집중시킵니다</p>
+                    </div>
+                    <div class="use-case-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                </div>
+
+                <div class="use-case-card" data-aos="fade-right" data-aos-delay="400">
+                    <div class="use-case-number">04</div>
+                    <div class="use-case-content">
+                        <h3>콘텐츠 포트폴리오</h3>
+                        <p>시술 전후 사진, 고객 후기, 서비스 소개 등 무제한으로 콘텐츠를 추가하세요</p>
+                    </div>
+                    <div class="use-case-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans Section -->
+    <section class="plans" id="plans">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">PRICING</span>
+                <h2 class="section-title">합리적인 가격 플랜</h2>
+                <p class="section-description">
+                    예산과 필요에 맞는 최적의 플랜을 선택하세요
+                </p>
+            </div>
+
+            <div class="plans-grid">
+                <!-- Standard Plan -->
+                <div class="plan-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="plan-badge">STANDARD</div>
+                    <h3 class="plan-name">스탠다드 플랜</h3>
+                    <div class="plan-price">
+                        <span class="currency">₩</span>
+                        <span class="amount">250,000</span>
+                    </div>
+                    <p class="plan-description">시작하기 좋은 기본 플랜</p>
+                    
+                    <ul class="plan-features">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>1페이지 상세페이지 제작</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>이미지 & 텍스트 의견 반영</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>모바일 반응형 디자인</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>SNS 공유 최적화</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>기본 애니메이션 효과</span>
+                        </li>
+                        <li class="disabled">
+                            <i class="fas fa-times"></i>
+                            <span>유지보수 서비스</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="btn btn-outline plan-btn" data-plan="standard">
+                        <span>플랜 선택하기</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="plan-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="plan-badge popular">PREMIUM</div>
+                    <div class="popular-label">
+                        <i class="fas fa-star"></i>
+                        MOST POPULAR
+                    </div>
+                    <h3 class="plan-name">프리미엄 플랜</h3>
+                    <div class="plan-price">
+                        <span class="currency">₩</span>
+                        <span class="amount">300,000</span>
+                    </div>
+                    <p class="plan-description">가장 추천하는 플랜</p>
+                    
+                    <ul class="plan-features">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>스탠다드 플랜 모든 혜택</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>1페이지 상세페이지 제작</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>이미지 & 텍스트 의견 반영</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>모바일 반응형 디자인</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>프리미엄 애니메이션 효과</span>
+                        </li>
+                        <li class="highlight">
+                            <i class="fas fa-check"></i>
+                            <span><strong>6개월 무료 유지보수</strong></span>
+                        </li>
+                    </ul>
+                    
+                    <button class="btn btn-primary plan-btn" data-plan="premium">
+                        <span>플랜 선택하기</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Maintenance Plan -->
+                <div class="plan-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="plan-badge">MAINTENANCE</div>
+                    <h3 class="plan-name">유지보수 서비스</h3>
+                    <div class="plan-price">
+                        <span class="currency">₩</span>
+                        <span class="amount">10,000</span>
+                        <span class="period">/건</span>
+                    </div>
+                    <p class="plan-description">제작 후 관리 서비스</p>
+                    
+                    <ul class="plan-features">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>콘텐츠 수정 및 업데이트</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>이미지 교체 및 추가</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>텍스트 내용 변경</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>레이아웃 미세 조정</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>24시간 내 작업 완료</span>
+                        </li>
+                        <li class="info">
+                            <i class="fas fa-info-circle"></i>
+                            <span>대규모 수정은 별도 협의</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="btn btn-outline plan-btn" data-plan="maintenance">
+                        <span>문의하기</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Plan Comparison -->
+            <div class="plan-comparison" data-aos="fade-up" data-aos-delay="400">
+                <button class="comparison-toggle" id="comparisonToggle">
+                    <span>플랜 상세 비교하기</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="comparison-content" id="comparisonContent">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>제공 항목</th>
+                                <th>Standard</th>
+                                <th>Premium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1P 상세페이지</td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                            </tr>
+                            <tr>
+                                <td>맞춤형 디자인</td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                            </tr>
+                            <tr>
+                                <td>모바일 최적화</td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                            </tr>
+                            <tr>
+                                <td>애니메이션 효과</td>
+                                <td>기본</td>
+                                <td>프리미엄</td>
+                            </tr>
+                            <tr>
+                                <td>수정 횟수</td>
+                                <td>2회</td>
+                                <td>무제한</td>
+                            </tr>
+                            <tr>
+                                <td>유지보수 기간</td>
+                                <td>-</td>
+                                <td>6개월</td>
+                            </tr>
+                            <tr>
+                                <td>제작 기간</td>
+                                <td>7일</td>
+                                <td>7일</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section class="templates" id="templates">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">PORTFOLIO</span>
+                <h2 class="section-title">템플릿 예시</h2>
+                <p class="section-description">
+                    실제 제작된 페이지들을 확인해보세요
+                </p>
+            </div>
+
+            <div class="templates-slider-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper templatesSwiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="template-card">
+                                <div class="template-image">
+                                    <img src="https://image.thum.io/get/width/800/crop/600/https://a-dongch.github.io/hara_brow/" alt="하라브로우 강남본점" onerror="this.src='https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80'">
+                                    <div class="template-overlay">
+                                        <a href="https://a-dongch.github.io/hara_brow/" target="_blank" class="btn btn-light view-template" data-template="5">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            미리보기
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="template-info">
+                                    <h3 class="template-title">하라브로우 강남본점</h3>
+                                    <p class="template-description">20년 경력의 전문가가 만드는 자연스러운 아름다움</p>
+                                    <div class="template-tags">
+                                        <span class="tag">프리미엄</span>
+                                        <span class="tag">반영구</span>
+                                        <span class="tag">전문</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Template 1 -->
+                        <div class="swiper-slide">
+                            <div class="template-card">
+                                <div class="template-image">
+                                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="뷰티샵 템플릿 1">
+                                    <div class="template-overlay">
+                                        <button class="btn btn-light view-template" data-template="1">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            미리보기
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="template-info">
+                                    <h3 class="template-title">엘레강스 테마</h3>
+                                    <p class="template-description">고급스러운 분위기의 클래식한 디자인</p>
+                                    <div class="template-tags">
+                                        <span class="tag">고급</span>
+                                        <span class="tag">클래식</span>
+                                        <span class="tag">화이트</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Template 2 -->
+                        <div class="swiper-slide">
+                            <div class="template-card">
+                                <div class="template-image">
+                                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80" alt="뷰티샵 템플릿 2">
+                                    <div class="template-overlay">
+                                        <button class="btn btn-light view-template" data-template="2">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            미리보기
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="template-info">
+                                    <h3 class="template-title">모던 미니멀</h3>
+                                    <p class="template-description">심플하고 세련된 현대적 디자인</p>
+                                    <div class="template-tags">
+                                        <span class="tag">모던</span>
+                                        <span class="tag">미니멀</span>
+                                        <span class="tag">심플</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Template 3 -->
+                        <div class="swiper-slide">
+                            <div class="template-card">
+                                <div class="template-image">
+                                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&q=80" alt="뷰티샵 템플릿 3">
+                                    <div class="template-overlay">
+                                        <button class="btn btn-light view-template" data-template="3">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            미리보기
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="template-info">
+                                    <h3 class="template-title">비비드 컬러</h3>
+                                    <p class="template-description">생동감 넘치는 컬러풀한 디자인</p>
+                                    <div class="template-tags">
+                                        <span class="tag">화려</span>
+                                        <span class="tag">컬러풀</span>
+                                        <span class="tag">트렌디</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Template 4 -->
+                        <div class="swiper-slide">
+                            <div class="template-card">
+                                <div class="template-image">
+                                    <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=800&q=80" alt="뷰티샵 템플릿 4">
+                                    <div class="template-overlay">
+                                        <button class="btn btn-light view-template" data-template="4">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            미리보기
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="template-info">
+                                    <h3 class="template-title">내추럴 톤</h3>
+                                    <p class="template-description">자연스럽고 편안한 분위기의 디자인</p>
+                                    <div class="template-tags">
+                                        <span class="tag">내추럴</span>
+                                        <span class="tag">베이지</span>
+                                        <span class="tag">편안</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+            <div class="templates-note" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-info-circle"></i>
+                <p>위 템플릿들은 예시이며, 원하시는 스타일로 완전 커스터마이징이 가능합니다</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">CONTACT</span>
+                <h2 class="section-title">지금 바로 시작하세요</h2>
+                <p class="section-description">
+                    인스타그램 DM으로 간편하게 문의하실 수 있습니다
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right" data-aos-delay="100">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h3>인스타그램 문의</h3>
+                        <p>DM으로 간편하게 상담받으세요</p>
+                        <a href="https://instagram.com/beautydetail.2026" target="_blank" class="contact-link">
+                            @beautydetail.2026
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+
+                    <div class="contact-stats">
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>빠른 응답</strong>
+                                <p>평균 2시간 이내 답변</p>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-calendar-check"></i>
+                            <div>
+                                <strong>신속한 제작</strong>
+                                <p>7일 이내 제작 완료</p>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-headset"></i>
+                            <div>
+                                <strong>지속 지원</strong>
+                                <p>제작 후에도 친절한 안내</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container" data-aos="fade-left" data-aos-delay="200">
+                    <form class="contact-form" id="contactForm">
+                        <h3>빠른 문의</h3>
+                        <p class="form-description">아래 정보를 남겨주시면 빠르게 연락드리겠습니다</p>
+                        
+                        <div class="form-group">
+                            <label for="name">
+                                <i class="fas fa-user"></i>
+                                이름 / 샵 이름
+                            </label>
+                            <input type="text" id="name" name="name" required placeholder="예: 홍길동 / 강남뷰티샵">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact">
+                                <i class="fas fa-phone"></i>
+                                연락처
+                            </label>
+                            <input type="tel" id="contact" name="contact" required placeholder="010-0000-0000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="plan">
+                                <i class="fas fa-list"></i>
+                                관심 플랜
+                            </label>
+                            <select id="plan" name="plan" required>
+                                <option value="">선택해주세요</option>
+                                <option value="standard">스탠다드 플랜 (25만원)</option>
+                                <option value="premium">프리미엄 플랜 (30만원)</option>
+                                <option value="maintenance">유지보수만 필요</option>
+                                <option value="consultation">상담 후 결정</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">
+                                <i class="fas fa-comment"></i>
+                                문의 내용
+                            </label>
+                            <textarea id="message" name="message" rows="5" placeholder="궁금하신 점이나 원하시는 스타일을 자유롭게 적어주세요"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large btn-block">
+                            <span>문의하기</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+
+                        <p class="form-notice">
+                            <i class="fas fa-shield-alt"></i>
+                            입력하신 정보는 상담 목적으로만 사용되며 안전하게 관리됩니다
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">FAQ</span>
+                <h2 class="section-title">자주 묻는 질문</h2>
+            </div>
+
+            <div class="faq-list" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>제작 기간은 얼마나 걸리나요?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>일반적으로 최초 상담 후 7일 이내에 제작이 완료됩니다. 복잡한 요구사항이나 많은 콘텐츠가 필요한 경우 추가 시간이 소요될 수 있으며, 이는 상담 시 안내해드립니다.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>수정은 몇 번까지 가능한가요?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>스탠다드 플랜은 2회, 프리미엄 플랜은 제작 기간 내 무제한 수정이 가능합니다. 프리미엄 플랜의 경우 6개월 유지보수 기간 동안에도 수정 요청이 가능합니다.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>페이지에 들어갈 콘텐츠는 어떻게 준비하나요?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>원장님께서 원하시는 이미지, 텍스트, 영상 등을 제공해주시면 됩니다. 콘텐츠가 부족한 경우 무료 이미지나 적절한 대체 방안을 제안해드립니다.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>도메인과 호스팅은 어떻게 되나요?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>제작비에는 호스팅과 기본 도메인이 포함되어 있습니다. 별도의 커스텀 도메인을 원하실 경우 추가 비용이 발생할 수 있으며, 이는 상담 시 안내해드립니다.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>유지보수는 어떤 내용이 포함되나요?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>이미지 교체, 텍스트 수정, 가격 변경, 이벤트 배너 추가 등 일반적인 콘텐츠 업데이트가 포함됩니다. 대규모 디자인 변경이나 기능 추가는 별도로 협의됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
+                    <div class="footer-brand">
+                        <i class="fas fa-spa"></i>
+                        <span>뷰티디테일</span>
+                    </div>
+                    <p class="footer-description">
+                        뷰티샵을 위한 프리미엄<br>
+                        홍보 페이지 제작 서비스
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <!-- <a href="https://facebook.com/" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://youtube.com/" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://blog.naver.com/" target="_blank" aria-label="Blog">
+                            <i class="fas fa-blog"></i>
+                        </a> -->
+                    </div>
+                </div>
+
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="footer-title">빠른 링크</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">서비스 소개</a></li>
+                        <li><a href="#plans">가격 플랜</a></li>
+                        <li><a href="#templates">템플릿 둘러보기</a></li>
+                        <li><a href="#contact">문의하기</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="footer-title">고객 지원</h4>
+                    <ul class="footer-links">
+                        <li><a href="#faq">자주 묻는 질문</a></li>
+                        <li><a href="#contact">1:1 문의</a></li>
+                        <li><a href="#plans">플랜 비교</a></li>
+                        <li><a href="#">이용약관</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section" data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="footer-title">연락처</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fab fa-instagram"></i>
+                            <span>@beautydetail.2026</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>zonber1002@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>평일 10:00 - 18:00</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>서울특별시 강남구</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2026 뷰티디테일 (BeautyDetail). All rights reserved.</p>
+                </div>
+                <!-- <div class="footer-legal">
+                    <a href="#">개인정보처리방침</a>
+                    <span>|</span>
+                    <a href="#">이용약관</a>
+                    <span>|</span>
+                    <a href="#">사업자정보</a>
+                </div> -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- AOS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- Swiper Library -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
