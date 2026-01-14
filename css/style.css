@@ -1836,6 +1836,38 @@ section {
         grid-template-columns: repeat(2, 1fr);
     }
     
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-brand {
+        justify-content: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+    
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-links li {
+        text-align: center;
+    }
+    
+    .footer-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-contact li {
+        justify-content: center;
+    }
+    
     .use-case-card {
         grid-template-columns: auto 1fr;
         gap: 1.5rem;
@@ -1913,6 +1945,38 @@ section {
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-brand {
+        justify-content: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+    
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-links li {
+        text-align: center;
+    }
+    
+    .footer-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-contact li {
+        justify-content: center;
     }
     
     .footer-bottom {
