@@ -339,7 +339,7 @@ section {
     .hero {
         padding-top: 100px;
         min-height: auto;
-        padding-bottom: 60px;
+        padding-bottom: 120px;
     }
     
     .hero-content {
@@ -366,6 +366,28 @@ section {
     
     .hero-stats {
         display: none;
+    }
+    
+    /* 모바일에서 scroll-indicator 위치 조정 */
+    .scroll-indicator {
+        bottom: 50px;
+        gap: 8px;
+    }
+    
+    .scroll-indicator p {
+        font-size: 0.7rem;
+        white-space: nowrap;
+    }
+    
+    .mouse {
+        width: 18px;
+        height: 28px;
+    }
+    
+    .wheel {
+        width: 3px;
+        height: 5px;
+        top: 5px;
     }
     
     /* 모바일 카드 높이 미세 조정 */
@@ -1916,6 +1938,11 @@ section {
     
     section {
         padding: 3rem 0;
+    }
+    
+    /* About 섹션과 hero 섹션 간격 조정 */
+    .about {
+        padding-top: 4rem;
     }
     
     .slide-title {
