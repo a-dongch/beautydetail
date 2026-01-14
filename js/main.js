@@ -118,10 +118,11 @@ const statsObserver = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-const heroStats = document.querySelector('.hero-stats');
-if (heroStats) {
-    statsObserver.observe(heroStats);
-}
+// Hero stats removed - using carousel slides instead
+// const heroStats = document.querySelector('.hero-stats');
+// if (heroStats) {
+//     statsObserver.observe(heroStats);
+// }
 
 // =============================================
 // Plan Comparison Toggle
@@ -169,6 +170,28 @@ planButtons.forEach(button => {
         // Show confirmation message
         showNotification(`${this.closest('.plan-card').querySelector('.plan-name').textContent} 선택됨! 아래 양식을 작성해주세요.`);
     });
+});
+
+// =============================================
+// Hero Swiper Initialization
+// =============================================
+const heroSwiper = new Swiper('.heroSwiper', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.hero-pagination',
+        clickable: true,
+    },
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+    },
+    speed: 1000,
 });
 
 // =============================================
@@ -727,15 +750,16 @@ planCards.forEach(card => {
 // =============================================
 // Parallax Effect on Hero Section
 // =============================================
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero-content');
-    
-    if (hero && scrolled < window.innerHeight) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        hero.style.opacity = 1 - (scrolled / 700);
-    }
-});
+// Parallax effect removed - using carousel slides instead
+// window.addEventListener('scroll', function() {
+//     const scrolled = window.pageYOffset;
+//     const hero = document.querySelector('.hero-content');
+//     
+//     if (hero && scrolled < window.innerHeight) {
+//         hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+//         hero.style.opacity = 1 - (scrolled / 700);
+//     }
+// });
 
 // =============================================
 // Form Input Animation
@@ -808,7 +832,7 @@ document.addEventListener('keydown', function(e) {
         showNotification('🎉 축하합니다! 히든 할인코드: BEAUTY2026', 'success');
         
         // Add rainbow animation to hero section
-        const hero = document.querySelector('.hero-background');
+        const hero = document.querySelector('.hero');
         if (hero) {
             hero.style.animation = 'rainbow 3s linear infinite';
             
