@@ -424,22 +424,34 @@ section {
         line-height: 1.6;
     }
     
-    .template-card {
-        min-height: auto;
+    .reviews-slider-container {
+        padding: 0 20px;
     }
     
-    .template-info {
-        padding: 1.25rem;
+    .review-card {
+        padding: 2rem 1.5rem;
+        min-height: 300px;
+        border-radius: 50px 30px 50px 30px;
     }
     
-    .template-title {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
+    .review-shop-name {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
     }
     
-    .template-description {
+    .review-text {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .review-purpose {
+        padding: 0.75rem 1.25rem;
         font-size: 0.85rem;
-        margin-bottom: 0.75rem;
+    }
+    
+    .reviews-slider-container .swiper-button-prev,
+    .reviews-slider-container .swiper-button-next {
+        display: none;
     }
 }
 
@@ -869,7 +881,7 @@ section {
    About Section
    ============================================= */
 .about {
-    background: var(--bg-light);
+    background: white;
 }
 
 .features-grid {
@@ -1286,158 +1298,209 @@ section {
 }
 
 /* =============================================
-   Templates Section
+   Reviews Section
    ============================================= */
-.templates {
+.reviews {
     background: white;
+    padding: var(--spacing-xl) 0;
 }
 
-.templates-slider-container {
+.reviews-slider-container {
     position: relative;
     padding: 0 60px;
 }
 
-.templatesSwiper {
-    padding: 2rem 0 4rem;
+.reviewsSwiper {
+    padding: 3rem 0 5rem;
 }
 
-.template-card {
+.review-card {
     background: white;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
+    border-radius: 60px 40px 60px 40px;
+    padding: 3rem 2.5rem;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     transition: all var(--transition-normal);
-}
-
-.template-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-xl);
-}
-
-.template-image {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 16/10;
 }
 
-.template-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.template-card:hover .template-image img {
-    transform: scale(1.1);
-}
-
-.template-overlay {
+.review-card::before {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(212, 85, 141, 0.9);
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    opacity: 0.1;
+    transition: all 0.5s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.review-card:hover::before {
+    transform: scale(1.1);
+    opacity: 0.15;
+}
+
+/* 파스텔톤 배경색 */
+.review-1 {
+    background: linear-gradient(135deg, #FFE5F1 0%, #FFF0F8 100%);
+}
+
+.review-1::before {
+    background: radial-gradient(circle, #FFB6D9 0%, transparent 70%);
+}
+
+.review-2 {
+    background: linear-gradient(135deg, #E8F5E9 0%, #F1F8F4 100%);
+}
+
+.review-2::before {
+    background: radial-gradient(circle, #A5D6A7 0%, transparent 70%);
+}
+
+.review-3 {
+    background: linear-gradient(135deg, #E3F2FD 0%, #E8F4FD 100%);
+}
+
+.review-3::before {
+    background: radial-gradient(circle, #90CAF9 0%, transparent 70%);
+}
+
+.review-4 {
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFF8F0 100%);
+}
+
+.review-4::before {
+    background: radial-gradient(circle, #FFCC80 0%, transparent 70%);
+}
+
+.review-5 {
+    background: linear-gradient(135deg, #F3E5F5 0%, #F8F0FA 100%);
+}
+
+.review-5::before {
+    background: radial-gradient(circle, #CE93D8 0%, transparent 70%);
+}
+
+.review-6 {
+    background: linear-gradient(135deg, #E0F2F1 0%, #E8F8F6 100%);
+}
+
+.review-6::before {
+    background: radial-gradient(circle, #80CBC4 0%, transparent 70%);
+}
+
+.review-7 {
+    background: linear-gradient(135deg, #FCE4EC 0%, #FFF0F5 100%);
+}
+
+.review-7::before {
+    background: radial-gradient(circle, #F48FB1 0%, transparent 70%);
+}
+
+.review-8 {
+    background: linear-gradient(135deg, #E1F5FE 0%, #E8F7FD 100%);
+}
+
+.review-8::before {
+    background: radial-gradient(circle, #81D4FA 0%, transparent 70%);
+}
+
+.review-shop-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-display);
+}
+
+.review-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: var(--transition-normal);
 }
 
-.template-card:hover .template-overlay {
-    opacity: 1;
-}
-
-.view-template {
-    transform: translateY(20px);
-    transition: all var(--transition-normal);
-}
-
-.template-card:hover .view-template {
-    transform: translateY(0);
-}
-
-.template-info {
-    padding: 2rem;
-}
-
-.template-title {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-}
-
-.template-description {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-}
-
-.template-tags {
+.review-purpose {
     display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.tag {
-    padding: 0.5rem 1rem;
-    background: var(--gradient-soft);
-    border-radius: var(--radius-xl);
-    font-size: 0.875rem;
-    color: var(--primary-color);
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    font-size: 0.95rem;
     font-weight: 600;
+    color: var(--text-primary);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Swiper Customization */
-.swiper-button-prev,
-.swiper-button-next {
+.review-purpose i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+/* Swiper Customization for Reviews */
+.reviews-slider-container .swiper-button-prev,
+.reviews-slider-container .swiper-button-next {
     width: 50px;
     height: 50px;
     background: white;
     border-radius: 50%;
     box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
 }
 
-.swiper-button-prev::after,
-.swiper-button-next::after {
+.reviews-slider-container .swiper-button-prev:hover,
+.reviews-slider-container .swiper-button-next:hover {
+    background: var(--gradient-primary);
+    transform: scale(1.1);
+}
+
+.reviews-slider-container .swiper-button-prev::after,
+.reviews-slider-container .swiper-button-next::after {
     font-size: 1.25rem;
     color: var(--primary-color);
     font-weight: 700;
 }
 
-.swiper-pagination-bullet {
+.reviews-slider-container .swiper-button-prev:hover::after,
+.reviews-slider-container .swiper-button-next:hover::after {
+    color: white;
+}
+
+.reviewsSwiper .swiper-pagination-bullet {
     width: 12px;
     height: 12px;
     background: var(--primary-color);
     opacity: 0.3;
+    transition: all var(--transition-normal);
 }
 
-.swiper-pagination-bullet-active {
+.reviewsSwiper .swiper-pagination-bullet-active {
     opacity: 1;
     background: var(--gradient-primary);
+    transform: scale(1.2);
 }
 
-.templates-note {
-    text-align: center;
-    margin-top: 3rem;
-    padding: 1.5rem;
-    background: var(--gradient-soft);
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.templates-note i {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-}
-
-.templates-note p {
-    margin: 0;
-    color: var(--text-primary);
-    font-weight: 500;
-}
 
 /* =============================================
    Contact Section
@@ -1558,6 +1621,72 @@ section {
 
 .form-group label i {
     color: var(--primary-color);
+}
+
+.contact-type-selector {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-type-option {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-light);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    font-weight: 500;
+}
+
+.contact-type-option input[type="radio"] {
+    display: none;
+}
+
+.contact-type-option span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.contact-type-option span i {
+    color: var(--text-secondary);
+}
+
+.contact-type-option input[type="radio"]:checked + span {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.contact-type-option input[type="radio"]:checked + span i {
+    color: var(--primary-color);
+}
+
+.contact-type-option:has(input[type="radio"]:checked) {
+    border-color: var(--primary-color);
+    background: rgba(212, 85, 141, 0.1);
+}
+
+.contact-input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: var(--transition-normal);
+    background: var(--bg-light);
+}
+
+.contact-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: white;
 }
 
 .form-group input,
@@ -1938,7 +2067,7 @@ section {
         grid-template-columns: 1fr;
     }
     
-    .templates-slider-container {
+    .reviews-slider-container {
         padding: 0 20px;
     }
     
@@ -2016,6 +2145,15 @@ section {
     .plan-card,
     .contact-form-container {
         padding: 2rem 1.5rem;
+    }
+    
+    .contact-type-selector {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .contact-type-option {
+        padding: 0.625rem 1.25rem;
     }
     
     .btn {

@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
         offset: 100,
         easing: 'ease-out-cubic'
     });
+    
+    // Setup contact type selector on page load
+    setupContactTypeSelector();
 });
 
 // =============================================
@@ -208,52 +211,40 @@ const heroSwiper = new Swiper('.heroSwiper', {
 });
 
 // =============================================
-// Template Swiper Initialization
+// Reviews Swiper Initialization
 // =============================================
-const templatesSwiper = new Swiper('.templatesSwiper', {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-        640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
+if (document.querySelector('.reviewsSwiper')) {
+    const reviewsSwiper = new Swiper('.reviewsSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
         },
-        1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
+        pagination: {
+            el: '.reviewsSwiper .swiper-pagination',
+            clickable: true,
         },
-    }
-});
-
-// Template View Buttons
-document.querySelectorAll('.view-template').forEach(button => {
-    // If it's a link, let it work normally
-    if (button.tagName === 'A') {
-        return; // Skip event listener for actual links
-    }
-    
-    button.addEventListener('click', function(e) {
-        e.preventDefault();
-        const templateId = this.getAttribute('data-template');
-        showNotification('템플릿 미리보기는 곧 제공될 예정입니다!');
-        
-        // In production, this would open a modal or navigate to template preview
-        console.log('View template:', templateId);
+        navigation: {
+            nextEl: '.reviews-slider-container .swiper-button-next',
+            prevEl: '.reviews-slider-container .swiper-button-prev',
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+        }
     });
-});
+}
+
+// Review View Buttons (if needed in future)
+// Currently reviews don't have view buttons
 
 // =============================================
 // FAQ Accordion
@@ -339,7 +330,9 @@ async function sendToSlack(formData) {
                     },
                     {
                         type: 'mrkdwn',
-                        text: `*📞 연락처*\n${escapeSlackText(formData.contact)}`
+                        text: formData.contactType === 'instagram' 
+                            ? `*📱 인스타그램*\n${escapeSlackText(formData.contact)}`
+                            : `*📞 전화번호*\n${escapeSlackText(formData.contact)}`
                     }
                 ]
             },
@@ -421,9 +414,71 @@ async function sendToSlack(formData) {
 // =============================================
 // Form Submission Handler
 // =============================================
+// =============================================
+// Contact Type Selector Handler
+// =============================================
+function setupContactTypeSelector() {
+    const contactTypeSelector = document.querySelector('.contact-type-selector');
+    const contactInput = document.getElementById('contact');
+    
+    if (!contactTypeSelector || !contactInput) {
+        return;
+    }
+    
+    // Function to update placeholder and input type
+    const updateContactInput = function(value) {
+        if (value === 'phone') {
+            contactInput.type = 'tel';
+            contactInput.placeholder = '010-0000-0000';
+            contactInput.setAttribute('placeholder', '010-0000-0000');
+            contactInput.pattern = '[0-9-]+';
+        } else if (value === 'instagram') {
+            contactInput.type = 'text';
+            contactInput.placeholder = '@instagram_username';
+            contactInput.setAttribute('placeholder', '@instagram_username');
+            contactInput.removeAttribute('pattern');
+        }
+    };
+    
+    // Set initial placeholder based on default selection
+    const defaultSelected = contactTypeSelector.querySelector('input[name="contactType"]:checked');
+    if (defaultSelected) {
+        updateContactInput(defaultSelected.value);
+    } else {
+        // Default to instagram if nothing is checked
+        updateContactInput('instagram');
+    }
+    
+    // Use event delegation on the selector container
+    contactTypeSelector.addEventListener('change', function(e) {
+        if (e.target && e.target.name === 'contactType') {
+            updateContactInput(e.target.value);
+            contactInput.value = '';
+        }
+    });
+    
+    // Also handle click for immediate feedback
+    contactTypeSelector.addEventListener('click', function(e) {
+        const radio = e.target.closest('label')?.querySelector('input[type="radio"][name="contactType"]');
+        if (radio) {
+            setTimeout(function() {
+                if (radio.checked) {
+                    updateContactInput(radio.value);
+                }
+            }, 10);
+        }
+    });
+}
+
+// =============================================
+// Form Submission Handler
+// =============================================
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
+    // Setup contact type selector
+    setupContactTypeSelector();
+    
     contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
@@ -433,18 +488,27 @@ if (contactForm) {
         // Get values from FormData
         const nameValue = (formDataObj.get('name') || '').toString().trim();
         const contactValue = (formDataObj.get('contact') || '').toString().trim();
+        const contactTypeValue = (formDataObj.get('contactType') || 'instagram').toString().trim();
         const planValue = (formDataObj.get('plan') || '').toString().trim();
         const messageValue = (formDataObj.get('message') || '').toString().trim();
         
         // Also get from direct input access as fallback
         const nameInput = document.getElementById('name');
         const contactInput = document.getElementById('contact');
+        const contactTypeInputs = document.querySelectorAll('input[name="contactType"]');
         const planInput = document.getElementById('plan');
         const messageInput = document.getElementById('message');
         
+        // Get selected contact type
+        let finalContactType = contactTypeValue;
+        if (!finalContactType && contactTypeInputs.length > 0) {
+            const selectedType = Array.from(contactTypeInputs).find(input => input.checked);
+            finalContactType = selectedType ? selectedType.value : 'instagram';
+        }
+        
         // Use direct input value if FormData is empty (fallback)
         const finalName = nameValue || (nameInput ? nameInput.value.trim() : '');
-        const finalContact = contactValue || (contactInput ? contactInput.value.trim() : '');
+        let finalContact = contactValue || (contactInput ? contactInput.value.trim() : '');
         const finalPlan = planValue || (planInput ? planInput.value.trim() : '');
         const finalMessage = messageValue || (messageInput ? messageInput.value.trim() : '');
         
@@ -452,22 +516,17 @@ if (contactForm) {
         console.log('FormData values:', {
             name: nameValue,
             contact: contactValue,
+            contactType: contactTypeValue,
             plan: planValue,
             message: messageValue
         });
         console.log('Direct input values:', {
             name: nameInput ? nameInput.value : 'N/A',
             contact: contactInput ? contactInput.value : 'N/A',
+            contactType: finalContactType,
             plan: planInput ? planInput.value : 'N/A',
             message: messageInput ? messageInput.value : 'N/A'
         });
-        console.log('Final values:', {
-            name: finalName,
-            contact: finalContact,
-            plan: finalPlan,
-            message: finalMessage
-        });
-        
         // Validate form
         if (!finalName || finalName.length === 0) {
             showNotification('이름/샵 이름을 입력해주세요.', 'error');
@@ -487,10 +546,39 @@ if (contactForm) {
             return;
         }
         
+        // Validate and format contact based on type
+        if (finalContactType === 'phone') {
+            // Phone validation (basic)
+            const phoneRegex = /^[0-9-]+$/;
+            if (!phoneRegex.test(finalContact)) {
+                showNotification('올바른 전화번호 형식을 입력해주세요. (예: 010-1234-5678)', 'error');
+                if (contactInput) contactInput.focus();
+                return;
+            }
+        } else if (finalContactType === 'instagram') {
+            // Instagram validation (should start with @ or be a username)
+            if (finalContact && !finalContact.startsWith('@')) {
+                // Auto-add @ if not present
+                finalContact = '@' + finalContact.replace(/^@+/, '');
+                if (contactInput) contactInput.value = finalContact;
+            }
+            // Remove any spaces
+            finalContact = finalContact.replace(/\s+/g, '');
+        }
+        
+        console.log('Final values after validation:', {
+            name: finalName,
+            contact: finalContact,
+            contactType: finalContactType,
+            plan: finalPlan,
+            message: finalMessage
+        });
+        
         // Prepare form data
         const formData = {
             name: finalName,
             contact: finalContact,
+            contactType: finalContactType,
             plan: finalPlan,
             message: finalMessage
         };
@@ -874,13 +962,13 @@ document.addEventListener('keydown', function(e) {
 // =============================================
 
 // Add keyboard navigation for custom elements
-document.querySelectorAll('.plan-card, .template-card, .feature-card').forEach(card => {
+document.querySelectorAll('.plan-card, .review-card, .feature-card').forEach(card => {
     card.setAttribute('tabindex', '0');
     
     card.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            const button = this.querySelector('.btn, .view-template');
+            const button = this.querySelector('.btn');
             if (button) {
                 button.click();
             }
