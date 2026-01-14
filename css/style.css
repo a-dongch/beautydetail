@@ -365,10 +365,59 @@ section {
     }
     
     .hero-stats {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        margin-top: 60px;
-        padding-top: 40px;
+        display: none;
+    }
+    
+    /* 모바일 카드 높이 미세 조정 */
+    .plan-card {
+        padding: 2rem 1.5rem;
+        min-height: auto;
+    }
+    
+    .plan-features {
+        margin: 1.5rem 0;
+    }
+    
+    .plan-features li {
+        padding: 0.75rem 0;
+        font-size: 0.9rem;
+    }
+    
+    .feature-card {
+        padding: 2rem 1.5rem;
+        min-height: auto;
+    }
+    
+    .feature-card .feature-icon {
+        margin-bottom: 1.25rem;
+    }
+    
+    .feature-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .feature-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    .template-card {
+        min-height: auto;
+    }
+    
+    .template-info {
+        padding: 1.25rem;
+    }
+    
+    .template-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .template-description {
+        font-size: 0.85rem;
+        margin-bottom: 0.75rem;
     }
 }
 
@@ -1006,17 +1055,45 @@ section {
 
 .plan-price {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     margin-bottom: 1rem;
+    gap: 0.5rem;
 }
 
-.plan-price .currency {
+.price-original {
+    display: flex;
+    align-items: flex-start;
+    opacity: 0.6;
+}
+
+.price-original .currency {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+    text-decoration: line-through;
+}
+
+.price-original .amount {
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-decoration: line-through;
+    color: var(--text-light);
+}
+
+.price-discount {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.price-discount .currency {
     font-size: 1.5rem;
     font-weight: 600;
     margin-top: 0.5rem;
 }
 
-.plan-price .amount {
+.price-discount .amount {
     font-size: 3.5rem;
     font-weight: 700;
     font-family: var(--font-display);
@@ -1027,12 +1104,22 @@ section {
     background-clip: text;
 }
 
+.discount-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--gradient-primary);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 20px;
+    margin-top: 0.5rem;
+    align-self: flex-start;
+}
+
 .plan-price .period {
     font-size: 1rem;
     color: var(--text-light);
-    align-self: flex-end;
-    margin-left: 0.25rem;
-    margin-bottom: 0.75rem;
+    margin-top: 0.5rem;
 }
 
 .plan-description {
