@@ -46,7 +46,7 @@ if (mobileMenuToggle) {
     });
 
     // Close mobile menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(link => {
+    document.querySelectorAll('.nav-link, .footer-links a').forEach(link => {
         link.addEventListener('click', function() {
             mobileMenuToggle.classList.remove('active');
             navMenu.classList.remove('active');
@@ -67,8 +67,16 @@ if (mobileMenuToggle) {
 // =============================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        // Skip if it's just "#" or empty
+        if (href === '#' || href === '') {
+            e.preventDefault();
+            return;
+        }
+        
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         
         if (target) {
             const offsetTop = target.offsetTop - 80; // Adjust for fixed navbar
@@ -76,6 +84,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 top: offsetTop,
                 behavior: 'smooth'
             });
+            
+            // Update URL without triggering scroll
+            if (history.pushState) {
+                history.pushState(null, null, href);
+            }
         }
     });
 });
